@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main()
+{
+    double nota1, nota2, nota3, nota4, media;
+
+    do{
+        system("clear");
+        printf("Digite o valor da primeira nota: ");
+        scanf("%lf", &nota1);
+    }while(nota1 < 0 || nota1 > 10);
+
+    do{
+        system("clear");
+        printf("Digite o valor da segunda nota: ");
+        scanf("%lf", &nota2);
+    }while(nota2 < 0 || nota2 > 10);
+
+    do{
+        system("clear");
+        printf("Digite o valor da terceira nota: ");
+        scanf("%lf", &nota3);
+    }while(nota3 < 0 || nota3 > 10);
+
+    system("clear");
+
+    media = (nota1 + nota2 + nota3) / 3;
+
+    printf(" Sua media e: %2.1f ", media);
+
+    if (media >= 6){
+        printf("\nVoce foi aprovado\n");
+
+        // Lógica da segunda imagem: Verificação de maior e menor nota
+        if(nota1 > nota2 && nota2 > nota3){
+            printf("sua maior nota foi a nota 1 com: %2.lf e sua menor foi a nota 3 com: %2.lf", nota1, nota3);
+        }else if(nota1 > nota2 && nota2 < nota3){
+            printf("sua maior nota foi a nota 1 com: %2.lf e sua menor foi a nota 2 com: %2.lf", nota1, nota2);
+        }else if(nota2 > nota1 && nota1 < nota3){
+            printf("sua maior nota foi a nota 2 com: %2.lf e sua menor foi a nota 1 com: %2.lf",nota2, nota1);
+        }else if(nota2 > nota1 && nota1 > nota3){
+            printf("sua maior nota foi a nota 2 com: %2.lf e sua menor foi a nota 3 com: %2.lf",nota2, nota3);
+        }else if(nota3 > nota2 && nota2 < nota1){
+            printf("sua maior nota foi a nota 3 com: %lf e sua menor foi a nota 2 com: %lf",nota3, nota2);
+        }else if(nota3 > nota2 && nota2 > nota1){
+            printf("sua maior nota foi a nota 3 com: %lf e sua menor foi a nota 1 com: %lf",nota3, nota1);
+        }
+
+    } else if(media >= 4 && media <= 5.9){
+        printf("\nVoce foi para a recuperacao \n");
+        printf("digite a nota na recuperacao: ");
+        scanf("%lf", &nota4);
+
+        if(nota4 >= 6){
+            printf("voce foi aprovado");
+        }else {
+            printf("voce foi reprovado");
+        }
+
+    } else {
+        printf("\nVoce foi reprovado\n");
+    }
+}
